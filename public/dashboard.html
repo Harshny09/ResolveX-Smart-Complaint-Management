@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | ResolveX</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="dashboard-body">
+
+    <div class="background">
+        <span class="blob blob1"></span>
+        <span class="blob blob2"></span>
+    </div>
+
+
+    <nav class="dashboard-nav">
+
+        <a href="dashboard.html" class="logo logo-link">
+
+            <span class="logo-icon">R</span>
+
+            <span class="logo-text">
+                Resolve<span>X</span>
+            </span>
+
+        </a>
+
+
+        <div class="dashboard-links">
+
+            <a class="active" href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="submit.html">
+                Submit Complaint
+            </a>
+
+            <a href="complaints.html">
+                My Complaints
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+
+        <button
+            class="logout-btn"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+
+    <main class="dashboard-container">
+
+        <div class="dashboard-welcome">
+
+            <div>
+
+                <span class="section-label">
+                    STUDENT DASHBOARD
+                </span>
+
+                <h1>
+                    Welcome back,
+                    <span id="dashboardName">
+                        Student
+                    </span> 👋
+                </h1>
+
+                <p>
+                    Here's what's happening with your complaints.
+                </p>
+
+            </div>
+
+
+            <a
+                href="submit.html"
+                class="btn btn-primary"
+            >
+                + New Complaint
+            </a>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="dashboard-stats">
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon purple">
+                    📩
+                </div>
+
+                <div>
+                    <strong id="totalComplaints">
+                        0
+                    </strong>
+
+                    <span>Total Complaints</span>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon yellow">
+                    ⏳
+                </div>
+
+                <div>
+                    <strong id="pendingComplaints">
+                        0
+                    </strong>
+
+                    <span>Pending</span>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon blue">
+                    🔄
+                </div>
+
+                <div>
+                    <strong id="progressComplaints">
+                        0
+                    </strong>
+
+                    <span>In Progress</span>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <strong id="resolvedComplaints">
+                        0
+                    </strong>
+
+                    <span>Resolved</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT COMPLAINTS -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>
+                        Recent Complaints
+                    </h2>
+
+                    <p>
+                        Your latest complaint activity.
+                    </p>
+                </div>
+
+                <a href="complaints.html">
+                    View All →
+                </a>
+
+            </div>
+
+
+            <div
+                id="recentComplaints"
+                class="complaint-list"
+            ></div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <section class="quick-actions">
+
+            <a href="submit.html" class="quick-card">
+
+                <span>📝</span>
+
+                <div>
+                    <strong>Submit Complaint</strong>
+                    <small>Report a new issue</small>
+                </div>
+
+                <b>→</b>
+
+            </a>
+
+
+            <a href="complaints.html" class="quick-card">
+
+                <span>🔎</span>
+
+                <div>
+                    <strong>Track Complaints</strong>
+                    <small>Check your complaint status</small>
+                </div>
+
+                <b>→</b>
+
+            </a>
+
+
+            <a href="profile.html" class="quick-card">
+
+                <span>👤</span>
+
+                <div>
+                    <strong>My Profile</strong>
+                    <small>Manage your account</small>
+                </div>
+
+                <b>→</b>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

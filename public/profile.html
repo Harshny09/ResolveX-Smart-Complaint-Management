@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile | ResolveX</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <style>
+
+        /* ==========================================
+           PROFILE PAGE
+        ========================================== */
+
+        .profile-page {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 75px 30px;
+
+        }
+
+
+        /* ==========================================
+           PROFILE HEADER
+        ========================================== */
+
+        .profile-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 24px;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .profile-avatar {
+
+            width: 92px;
+
+            height: 92px;
+
+            border-radius: 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #06b6d4
+                );
+
+            color: white;
+
+            font-size: 40px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 15px 45px
+                rgba(59, 130, 246, 0.30);
+
+        }
+
+
+        .profile-header-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+
+        .profile-label {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #7182ff;
+
+        }
+
+
+        .profile-name {
+
+            margin: 0;
+
+            font-size: 38px;
+
+            font-weight: 800;
+
+            color: #ffffff;
+
+        }
+
+
+        /* ==========================================
+           PROFILE CARD
+        ========================================== */
+
+        .profile-card {
+
+            background:
+                rgba(18, 23, 37, 0.95);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 24px;
+
+            padding: 36px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.25);
+
+        }
+
+
+        .profile-card h2 {
+
+            margin-top: 0;
+
+            margin-bottom: 30px;
+
+            color: #ffffff;
+
+        }
+
+
+        /* ==========================================
+           GRID
+        ========================================== */
+
+        .profile-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 28px;
+
+        }
+
+
+        /* ==========================================
+           FIELDS
+        ========================================== */
+
+        .profile-field {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+        }
+
+
+        .profile-field label {
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #9ca8c5;
+
+        }
+
+
+        .profile-field input {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 15px 16px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            background: #1a1f2d;
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            font-family: Inter, sans-serif;
+
+            outline: none;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .profile-field input:focus {
+
+            border-color: #6677ff;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(102,119,255,0.15);
+
+        }
+
+
+        .profile-field input::placeholder {
+
+            color: #68728a;
+
+        }
+
+
+        .profile-field input[readonly] {
+
+            opacity: 0.75;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* ==========================================
+           STATUS
+        ========================================== */
+
+        .status-box {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 15px 16px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(16,185,129,0.10);
+
+            border:
+                1px solid
+                rgba(16,185,129,0.30);
+
+            color: #34d399;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+        }
+
+
+        .status-dot {
+
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #34d399;
+
+            box-shadow:
+                0 0 12px
+                rgba(52,211,153,0.7);
+
+        }
+
+
+        /* ==========================================
+           BUTTON
+        ========================================== */
+
+        .profile-actions {
+
+            margin-top: 32px;
+
+            display: flex;
+
+            justify-content: flex-end;
+
+        }
+
+
+        .save-profile-btn {
+
+            border: none;
+
+            padding: 14px 28px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #06b6d4
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .save-profile-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(59,130,246,0.30);
+
+        }
+
+
+        .save-profile-btn:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 700px) {
+
+            .profile-page {
+
+                padding:
+                    50px 20px;
+
+            }
+
+
+            .profile-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+
+            .profile-name {
+
+                font-size: 30px;
+
+            }
+
+
+            .profile-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .profile-card {
+
+                padding: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- ==========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav class="dashboard-nav">
+
+
+        <a
+            href="dashboard.html"
+            class="logo logo-link"
+        >
+
+            <span class="logo-icon">
+                R
+            </span>
+
+            <span class="logo-text">
+                Resolve<span>X</span>
+            </span>
+
+        </a>
+
+
+        <div class="dashboard-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="submit.html">
+                Submit Complaint
+            </a>
+
+            <a href="complaints.html">
+                My Complaints
+            </a>
+
+            <a
+                href="profile.html"
+                class="active"
+            >
+                Profile
+            </a>
+
+        </div>
+
+
+        <button
+            class="logout-btn"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         PROFILE
+    ========================================== -->
+
+    <main class="profile-page">
+
+
+        <!-- HEADER -->
+
+        <div class="profile-header">
+
+
+            <div
+                class="profile-avatar"
+                id="profileAvatar"
+            >
+                H
+            </div>
+
+
+            <div class="profile-header-text">
+
+
+                <span class="profile-label">
+                    MY PROFILE
+                </span>
+
+
+                <!-- NO LOADING TEXT -->
+
+                <h1
+                    class="profile-name"
+                    id="profileName"
+                >
+                    My Profile
+                </h1>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             ACCOUNT CARD
+        ====================================== -->
+
+        <div class="profile-card">
+
+
+            <h2>
+                Account Information
+            </h2>
+
+
+            <div class="profile-grid">
+
+
+                <!-- FULL NAME -->
+
+                <div class="profile-field">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="profile-field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+
+                <!-- ROLE -->
+
+                <div class="profile-field">
+
+                    <label for="role">
+                        Role
+                    </label>
+
+                    <input
+                        type="text"
+                        id="role"
+                        value="Student"
+                        readonly
+                    >
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="profile-field">
+
+                    <label>
+                        Account Status
+                    </label>
+
+
+                    <div class="status-box">
+
+                        <span
+                            class="status-dot"
+                        ></span>
+
+                        <span>
+                            Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SAVE -->
+
+            <div class="profile-actions">
+
+                <button
+                    type="button"
+                    id="saveProfileBtn"
+                    class="save-profile-btn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        // ==========================================
+        // TOKEN
+        // ==========================================
+
+        let token =
+            localStorage.getItem("token");
+
+
+        // ==========================================
+        // CHECK LOGIN
+        // ==========================================
+
+        if (!token) {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+
+        // ==========================================
+        // LOAD PROFILE
+        // ==========================================
+
+        async function loadProfile() {
+
+            try {
+
+
+                const response =
+                    await fetch(
+                        "/api/auth/profile",
+                        {
+
+                            method: "GET",
+
+                            headers: {
+
+                                "Authorization":
+                                    "Bearer " + token
+
+                            }
+
+                        }
+                    );
+
+
+
+                const data =
+                    await response.json();
+
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load profile"
+                    );
+
+                }
+
+
+
+                // ==================================
+                // HEADER
+                // ==================================
+
+                document.getElementById(
+                    "profileName"
+                ).textContent =
+                    data.user.name;
+
+
+
+                // ==================================
+                // AVATAR
+                // ==================================
+
+                document.getElementById(
+                    "profileAvatar"
+                ).textContent =
+                    data.user.name
+                        .charAt(0)
+                        .toUpperCase();
+
+
+
+                // ==================================
+                // FULL NAME
+                // ==================================
+
+                document.getElementById(
+                    "fullName"
+                ).value =
+                    data.user.name;
+
+
+
+                // ==================================
+                // EMAIL
+                // ==================================
+
+                document.getElementById(
+                    "email"
+                ).value =
+                    data.user.email;
+
+
+
+                // ==================================
+                // ROLE
+                // ==================================
+
+                document.getElementById(
+                    "role"
+                ).value =
+                    data.user.role === "admin"
+                        ? "Admin"
+                        : "Student";
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "Profile loading error:",
+                    error
+                );
+
+
+                document.getElementById(
+                    "profileName"
+                ).textContent =
+                    "Profile";
+
+
+                alert(
+                    "Unable to load profile: " +
+                    error.message
+                );
+
+            }
+
+        }
+
+
+
+        // ==========================================
+        // SAVE PROFILE
+        // ==========================================
+
+        async function saveProfile() {
+
+
+            const button =
+                document.getElementById(
+                    "saveProfileBtn"
+                );
+
+
+            const name =
+                document.getElementById(
+                    "fullName"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "email"
+                ).value.trim();
+
+
+
+            // ======================================
+            // VALIDATION
+            // ======================================
+
+            if (!name) {
+
+                alert(
+                    "Please enter your full name."
+                );
+
+                return;
+
+            }
+
+
+            if (!email) {
+
+                alert(
+                    "Please enter your email."
+                );
+
+                return;
+
+            }
+
+
+
+            // ======================================
+            // EMAIL VALIDATION
+            // ======================================
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (
+                !emailPattern.test(email)
+            ) {
+
+                alert(
+                    "Please enter a valid email address."
+                );
+
+                return;
+
+            }
+
+
+
+            // ======================================
+            // BUTTON STATE
+            // ======================================
+
+            button.disabled = true;
+
+            button.textContent =
+                "Saving...";
+
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+                        "/api/auth/profile",
+                        {
+
+                            method: "PUT",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Authorization":
+                                    "Bearer " + token
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    name: name,
+
+                                    email: email
+
+                                })
+
+                        }
+                    );
+
+
+
+                // ==================================
+                // READ RESPONSE
+                // ==================================
+
+                const data =
+                    await response.json();
+
+
+
+                console.log(
+                    "Profile update response:",
+                    data
+                );
+
+
+
+                // ==================================
+                // ERROR
+                // ==================================
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Profile update failed"
+                    );
+
+                }
+
+
+
+                // ==================================
+                // UPDATE TOKEN
+                // ==================================
+
+                if (data.token) {
+
+                    token =
+                        data.token;
+
+
+                    localStorage.setItem(
+                        "token",
+                        token
+                    );
+
+                }
+
+
+
+                // ==================================
+                // UPDATE PAGE
+                // ==================================
+
+                document.getElementById(
+                    "profileName"
+                ).textContent =
+                    data.user.name;
+
+
+                document.getElementById(
+                    "profileAvatar"
+                ).textContent =
+                    data.user.name
+                        .charAt(0)
+                        .toUpperCase();
+
+
+                document.getElementById(
+                    "fullName"
+                ).value =
+                    data.user.name;
+
+
+                document.getElementById(
+                    "email"
+                ).value =
+                    data.user.email;
+
+
+
+                // ==================================
+                // SUCCESS
+                // ==================================
+
+                alert(
+                    "Profile updated successfully! 🎉"
+                );
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "Profile update error:",
+                    error
+                );
+
+
+                alert(
+                    "Update failed: " +
+                    error.message
+                );
+
+            }
+
+
+            finally {
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "Save Changes";
+
+            }
+
+        }
+
+
+
+        // ==========================================
+        // BUTTON EVENT
+        // ==========================================
+
+        document
+            .getElementById(
+                "saveProfileBtn"
+            )
+            .addEventListener(
+                "click",
+                saveProfile
+            );
+
+
+
+        // ==========================================
+        // LOGOUT
+        // ==========================================
+
+        function logout() {
+
+
+            localStorage.removeItem(
+                "token"
+            );
+
+
+            localStorage.removeItem(
+                "user"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+
+        // ==========================================
+        // START
+        // ==========================================
+
+        loadProfile();
+
+
+    </script>
+
+
+</body>
+
+</html>

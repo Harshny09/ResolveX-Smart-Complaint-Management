@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>New Complaint | ResolveX</title>
+
+
+    <!-- FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- MAIN CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           RESOLVEX NEW COMPLAINT PAGE
+        ===================================================== */
+
+        body.rx-new-complaint {
+
+            margin: 0 !important;
+
+            min-height: 100vh !important;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(99, 102, 241, 0.15),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 90% 15%,
+                    rgba(34, 211, 238, 0.10),
+                    transparent 30%
+                ),
+                #070b17 !important;
+
+            color: #f8fafc !important;
+
+            overflow-x: hidden !important;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .rx-complaint-nav {
+
+            width: 100% !important;
+
+            height: 72px !important;
+
+            padding: 0 7% !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            position: sticky !important;
+
+            top: 0 !important;
+
+            z-index: 999 !important;
+
+            background:
+                rgba(5, 9, 22, 0.92) !important;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.07) !important;
+
+            backdrop-filter:
+                blur(18px) !important;
+        }
+
+
+        .rx-complaint-logo {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 10px !important;
+
+            color: white !important;
+
+            text-decoration: none !important;
+        }
+
+
+        .rx-complaint-logo-icon {
+
+            width: 38px !important;
+
+            height: 38px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            border-radius: 11px !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #22d3ee
+                ) !important;
+
+            color: white !important;
+
+            font-size: 17px !important;
+
+            font-weight: 800 !important;
+
+            box-shadow:
+                0 8px 25px
+                rgba(99,102,241,0.30) !important;
+        }
+
+
+        .rx-complaint-logo-text {
+
+            font-size: 19px !important;
+
+            font-weight: 800 !important;
+        }
+
+
+        .rx-complaint-logo-text span {
+
+            color: #818cf8 !important;
+        }
+
+
+        .rx-complaint-links {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 30px !important;
+        }
+
+
+        .rx-complaint-links a {
+
+            color: #7e8aa3 !important;
+
+            text-decoration: none !important;
+
+            font-size: 12px !important;
+
+            font-weight: 600 !important;
+
+            transition: 0.25s ease !important;
+        }
+
+
+        .rx-complaint-links a:hover,
+        .rx-complaint-links a.active {
+
+            color: #a5b4fc !important;
+        }
+
+
+        .rx-logout {
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10) !important;
+
+            background:
+                rgba(255,255,255,0.04) !important;
+
+            color: #cbd5e1 !important;
+
+            border-radius: 9px !important;
+
+            padding: 9px 17px !important;
+
+            font-family: inherit !important;
+
+            font-size: 11px !important;
+
+            font-weight: 600 !important;
+
+            cursor: pointer !important;
+
+            transition: 0.25s ease !important;
+        }
+
+
+        .rx-logout:hover {
+
+            background:
+                rgba(99,102,241,0.12) !important;
+
+            border-color:
+                rgba(129,140,248,0.35) !important;
+
+            color: white !important;
+        }
+
+
+        /* =====================================================
+           PAGE WRAPPER
+        ===================================================== */
+
+        .rx-complaint-wrapper {
+
+            width:
+                min(1050px, 92%) !important;
+
+            margin:
+                0 auto !important;
+
+            padding:
+                55px 0 80px !important;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .rx-complaint-header {
+
+            margin-bottom: 30px !important;
+
+            text-align: left !important;
+        }
+
+
+        .rx-complaint-label {
+
+            display: block !important;
+
+            color: #818cf8 !important;
+
+            font-size: 10px !important;
+
+            font-weight: 800 !important;
+
+            letter-spacing: 1.8px !important;
+
+            margin-bottom: 10px !important;
+        }
+
+
+        .rx-complaint-header h1 {
+
+            margin: 0 0 10px !important;
+
+            font-size:
+                clamp(32px, 4vw, 46px) !important;
+
+            line-height: 1.1 !important;
+
+            letter-spacing: -1.8px !important;
+
+            color: #f8fafc !important;
+        }
+
+
+        .rx-complaint-header h1 span {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #818cf8,
+                    #8b5cf6,
+                    #22d3ee
+                ) !important;
+
+            -webkit-background-clip: text !important;
+
+            background-clip: text !important;
+
+            color: transparent !important;
+        }
+
+
+        .rx-complaint-header p {
+
+            max-width: 680px !important;
+
+            margin: 0 !important;
+
+            color: #7d899f !important;
+
+            font-size: 13px !important;
+
+            line-height: 1.7 !important;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .rx-complaint-card {
+
+            width: 100% !important;
+
+            display: block !important;
+
+            padding: 34px !important;
+
+            border-radius: 22px !important;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(22,29,45,0.98),
+                    rgba(12,19,32,0.98)
+                ) !important;
+
+            border:
+                1px solid
+                rgba(148,163,184,0.14) !important;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.35) !important;
+
+            overflow: visible !important;
+        }
+
+
+        /* =====================================================
+           CARD HEADER
+        ===================================================== */
+
+        .rx-complaint-card-header {
+
+            width: 100% !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            gap: 20px !important;
+
+            margin: 0 0 28px !important;
+
+            padding: 0 0 22px !important;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.07) !important;
+        }
+
+
+        .rx-card-heading {
+
+            flex: 1 !important;
+
+            min-width: 0 !important;
+        }
+
+
+        .rx-card-heading h2 {
+
+            margin: 0 0 6px !important;
+
+            font-size: 20px !important;
+
+            color: #f1f5f9 !important;
+        }
+
+
+        .rx-card-heading p {
+
+            margin: 0 !important;
+
+            color: #68748b !important;
+
+            font-size: 11px !important;
+        }
+
+
+        .rx-complaint-icon {
+
+            flex: 0 0 52px !important;
+
+            width: 52px !important;
+
+            height: 52px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            border-radius: 15px !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(99,102,241,0.22),
+                    rgba(34,211,238,0.12)
+                ) !important;
+
+            border:
+                1px solid
+                rgba(129,140,248,0.20) !important;
+
+            font-size: 22px !important;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        #complaintForm.rx-complaint-form {
+
+            width: 100% !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            gap: 22px !important;
+
+            margin: 0 !important;
+        }
+
+
+        /* =====================================================
+           FORM GRID
+        ===================================================== */
+
+        .rx-form-grid {
+
+            width: 100% !important;
+
+            display: grid !important;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr) !important;
+
+            gap: 20px !important;
+
+            margin: 0 !important;
+        }
+
+
+        .rx-form-group {
+
+            width: 100% !important;
+
+            min-width: 0 !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            gap: 8px !important;
+        }
+
+
+        .rx-form-group.rx-full {
+
+            grid-column:
+                1 / -1 !important;
+        }
+
+
+        .rx-form-group label {
+
+            display: block !important;
+
+            margin: 0 !important;
+
+            color: #d5dbea !important;
+
+            font-size: 12px !important;
+
+            font-weight: 600 !important;
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        .rx-form-group input,
+        .rx-form-group select,
+        .rx-form-group textarea {
+
+            width: 100% !important;
+
+            max-width: 100% !important;
+
+            margin: 0 !important;
+
+            outline: none !important;
+
+            border:
+                1px solid
+                rgba(148,163,184,0.15) !important;
+
+            border-radius: 11px !important;
+
+            background:
+                rgba(30,41,59,0.62) !important;
+
+            color: #f8fafc !important;
+
+            font-family: inherit !important;
+
+            font-size: 13px !important;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease !important;
+        }
+
+
+        .rx-form-group input,
+        .rx-form-group select {
+
+            height: 50px !important;
+
+            padding:
+                0 14px !important;
+        }
+
+
+        .rx-form-group textarea {
+
+            min-height: 160px !important;
+
+            padding: 14px !important;
+
+            resize: vertical !important;
+
+            line-height: 1.6 !important;
+        }
+
+
+        .rx-form-group input::placeholder,
+        .rx-form-group textarea::placeholder {
+
+            color: #5f6b83 !important;
+        }
+
+
+        .rx-form-group input:focus,
+        .rx-form-group select:focus,
+        .rx-form-group textarea:focus {
+
+            border-color:
+                rgba(129,140,248,0.70) !important;
+
+            background:
+                rgba(30,41,59,0.85) !important;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(99,102,241,0.09) !important;
+        }
+
+
+        .rx-form-group select option {
+
+            background: #111827 !important;
+
+            color: white !important;
+        }
+
+
+        /* =====================================================
+           DESCRIPTION FOOTER
+        ===================================================== */
+
+        .rx-description-footer {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            margin-top: -2px !important;
+        }
+
+
+        .rx-description-hint,
+        #characterCount {
+
+            color: #627089 !important;
+
+            font-size: 10px !important;
+        }
+
+
+        /* =====================================================
+           MESSAGES
+        ===================================================== */
+
+        .rx-complaint-message {
+
+            width: 100% !important;
+
+            padding:
+                12px 14px !important;
+
+            border-radius: 10px !important;
+
+            font-size: 12px !important;
+
+            line-height: 1.5 !important;
+        }
+
+
+        .rx-complaint-error {
+
+            color: #fecaca !important;
+
+            background:
+                rgba(239,68,68,0.08) !important;
+
+            border:
+                1px solid
+                rgba(239,68,68,0.18) !important;
+        }
+
+
+        .rx-complaint-success {
+
+            color: #bbf7d0 !important;
+
+            background:
+                rgba(34,197,94,0.08) !important;
+
+            border:
+                1px solid
+                rgba(34,197,94,0.18) !important;
+        }
+
+
+        /* =====================================================
+           ACTION BUTTONS
+        ===================================================== */
+
+        .rx-complaint-actions {
+
+            width: 100% !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: flex-end !important;
+
+            gap: 12px !important;
+
+            padding-top: 2px !important;
+        }
+
+
+        .rx-cancel {
+
+            height: 49px !important;
+
+            padding:
+                0 24px !important;
+
+            border-radius: 10px !important;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10) !important;
+
+            background:
+                rgba(255,255,255,0.04) !important;
+
+            color: #9ba6ba !important;
+
+            font-family: inherit !important;
+
+            font-size: 12px !important;
+
+            font-weight: 600 !important;
+
+            cursor: pointer !important;
+
+            transition: 0.25s ease !important;
+        }
+
+
+        .rx-cancel:hover {
+
+            color: white !important;
+
+            background:
+                rgba(255,255,255,0.08) !important;
+        }
+
+
+        .rx-submit {
+
+            min-width: 190px !important;
+
+            height: 49px !important;
+
+            padding:
+                0 24px !important;
+
+            border: none !important;
+
+            border-radius: 10px !important;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #6366f1,
+                    #7c3aed 45%,
+                    #06b6d4
+                ) !important;
+
+            color: white !important;
+
+            font-family: inherit !important;
+
+            font-size: 12px !important;
+
+            font-weight: 700 !important;
+
+            cursor: pointer !important;
+
+            box-shadow:
+                0 12px 30px
+                rgba(99,102,241,0.22) !important;
+
+            transition: 0.25s ease !important;
+        }
+
+
+        .rx-submit:hover {
+
+            transform:
+                translateY(-2px) !important;
+
+            box-shadow:
+                0 18px 38px
+                rgba(99,102,241,0.32) !important;
+        }
+
+
+        .rx-submit:disabled {
+
+            opacity: 0.6 !important;
+
+            cursor: not-allowed !important;
+
+            transform: none !important;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .rx-complaint-links {
+
+                display: none !important;
+            }
+
+
+            .rx-complaint-wrapper {
+
+                width: 92% !important;
+
+                padding-top: 40px !important;
+            }
+
+
+            .rx-form-grid {
+
+                grid-template-columns:
+                    1fr !important;
+            }
+
+
+            .rx-form-group.rx-full {
+
+                grid-column: auto !important;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .rx-complaint-nav {
+
+                padding:
+                    0 5% !important;
+            }
+
+
+            .rx-complaint-card {
+
+                padding:
+                    24px 18px !important;
+            }
+
+
+            .rx-complaint-card-header {
+
+                align-items: flex-start !important;
+            }
+
+
+            .rx-complaint-icon {
+
+                width: 44px !important;
+
+                height: 44px !important;
+
+                flex-basis: 44px !important;
+            }
+
+
+            .rx-complaint-actions {
+
+                flex-direction: column !important;
+            }
+
+
+            .rx-cancel,
+            .rx-submit {
+
+                width: 100% !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body class="rx-new-complaint">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="rx-complaint-nav">
+
+
+        <a
+            href="dashboard.html"
+            class="rx-complaint-logo"
+        >
+
+            <span class="rx-complaint-logo-icon">
+                R
+            </span>
+
+            <span class="rx-complaint-logo-text">
+                Resolve<span>X</span>
+            </span>
+
+        </a>
+
+
+        <div class="rx-complaint-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a
+                href="submit.html"
+                class="active"
+            >
+                New Complaint
+            </a>
+
+            <a href="complaints.html">
+                My Complaints
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+
+        <button
+            class="rx-logout"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="rx-complaint-wrapper">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="rx-complaint-header">
+
+            <span class="rx-complaint-label">
+                COMPLAINT CENTER
+            </span>
+
+            <h1>
+                Submit a
+                <span>New Complaint</span>
+            </h1>
+
+            <p>
+                Tell us about the issue you're facing.
+                Provide accurate details so the concerned
+                department can review and resolve it quickly.
+            </p>
+
+        </header>
+
+
+
+        <!-- =================================================
+             COMPLAINT CARD
+        ================================================== -->
+
+        <section class="rx-complaint-card">
+
+
+            <!-- CARD HEADER -->
+
+            <div class="rx-complaint-card-header">
+
+                <div class="rx-card-heading">
+
+                    <h2>
+                        Complaint Details
+                    </h2>
+
+                    <p>
+                        Provide the details of your complaint below.
+                    </p>
+
+                </div>
+
+
+                <div class="rx-complaint-icon">
+                    📝
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+
+            <form
+                id="complaintForm"
+                class="rx-complaint-form"
+            >
+
+
+                <div class="rx-form-grid">
+
+
+                    <!-- TITLE -->
+
+                    <div
+                        class="rx-form-group rx-full"
+                    >
+
+                        <label for="title">
+                            Complaint Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="Example: Internet not working in Block A"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="rx-form-group">
+
+                        <label for="category">
+                            Category
+                        </label>
+
+                        <select
+                            id="category"
+                            name="category"
+                            required
+                        >
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Academic">
+                                Academic
+                            </option>
+
+                            <option value="Hostel">
+                                Hostel
+                            </option>
+
+                            <option value="Internet">
+                                Internet
+                            </option>
+
+                            <option value="Transport">
+                                Transport
+                            </option>
+
+                            <option value="Infrastructure">
+                                Infrastructure
+                            </option>
+
+                            <option value="Canteen">
+                                Canteen
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- PRIORITY -->
+
+                    <div class="rx-form-group">
+
+                        <label for="priority">
+                            Priority
+                        </label>
+
+                        <select
+                            id="priority"
+                            name="priority"
+                            required
+                        >
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option
+                                value="Medium"
+                                selected
+                            >
+                                Medium
+                            </option>
+
+                            <option value="High">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DEPARTMENT -->
+
+                    <div
+                        class="rx-form-group rx-full"
+                    >
+
+                        <label for="department">
+                            Concerned Department
+                        </label>
+
+                        <select
+                            id="department"
+                            name="department"
+                            required
+                        >
+
+                            <option value="">
+                                Select department
+                            </option>
+
+                            <option value="Academic Department">
+                                Academic Department
+                            </option>
+
+                            <option value="Hostel Administration">
+                                Hostel Administration
+                            </option>
+
+                            <option value="IT Department">
+                                IT Department
+                            </option>
+
+                            <option value="Transport Department">
+                                Transport Department
+                            </option>
+
+                            <option value="Infrastructure Department">
+                                Infrastructure Department
+                            </option>
+
+                            <option value="Canteen Management">
+                                Canteen Management
+                            </option>
+
+                            <option value="General Administration">
+                                General Administration
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div
+                        class="rx-form-group rx-full"
+                    >
+
+                        <label for="description">
+                            Describe Your Complaint
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            maxlength="1000"
+                            placeholder="Explain the issue clearly. Include the location, date, time and any useful details..."
+                            required
+                        ></textarea>
+
+
+                        <div
+                            class="rx-description-footer"
+                        >
+
+                            <span class="rx-description-hint">
+                                Maximum 1000 characters
+                            </span>
+
+                            <span id="characterCount">
+                                0 / 1000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="complaintError"
+                    class="rx-complaint-message rx-complaint-error"
+                    style="display:none;"
+                ></div>
+
+
+
+                <!-- SUCCESS -->
+
+                <div
+                    id="complaintSuccess"
+                    class="rx-complaint-message rx-complaint-success"
+                    style="display:none;"
+                ></div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="rx-complaint-actions">
+
+                    <button
+                        type="button"
+                        class="rx-cancel"
+                        onclick="window.location.href='dashboard.html'"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="submitComplaintButton"
+                        class="rx-submit"
+                    >
+                        Submit Complaint →
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- COMMON JAVASCRIPT -->
+
+    <script src="app.js"></script>
+
+
+    <!-- =====================================================
+         COMPLAINT JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                /* =========================================
+                   LOGIN CHECK
+                ========================================== */
+
+                if (
+                    typeof requireLogin === "function"
+                ) {
+
+                    if (!requireLogin()) {
+                        return;
+                    }
+
+                }
+
+
+
+                /* =========================================
+                   ELEMENTS
+                ========================================== */
+
+                const form =
+                    document.getElementById(
+                        "complaintForm"
+                    );
+
+                const category =
+                    document.getElementById(
+                        "category"
+                    );
+
+                const description =
+                    document.getElementById(
+                        "description"
+                    );
+
+                const characterCount =
+                    document.getElementById(
+                        "characterCount"
+                    );
+
+                const errorBox =
+                    document.getElementById(
+                        "complaintError"
+                    );
+
+                const successBox =
+                    document.getElementById(
+                        "complaintSuccess"
+                    );
+
+                const submitButton =
+                    document.getElementById(
+                        "submitComplaintButton"
+                    );
+
+
+
+                /* =========================================
+                   CATEGORY FROM HOMEPAGE
+                ========================================== */
+
+                const selectedCategory =
+                    localStorage.getItem(
+                        "selectedComplaintCategory"
+                    );
+
+
+                if (
+                    selectedCategory &&
+                    category
+                ) {
+
+                    const matchingOption =
+                        Array.from(
+                            category.options
+                        ).find(
+                            option =>
+                                option.value.toLowerCase() ===
+                                selectedCategory.toLowerCase()
+                        );
+
+
+                    if (matchingOption) {
+
+                        category.value =
+                            matchingOption.value;
+
+                    }
+
+                }
+
+
+
+                /* =========================================
+                   CHARACTER COUNT
+                ========================================== */
+
+                description.addEventListener(
+                    "input",
+                    () => {
+
+                        characterCount.textContent =
+                            `${description.value.length} / 1000`;
+
+                    }
+                );
+
+
+
+                /* =========================================
+                   SUBMIT
+                ========================================== */
+
+                form.addEventListener(
+                    "submit",
+                    async (event) => {
+
+                        event.preventDefault();
+
+
+                        errorBox.style.display =
+                            "none";
+
+                        successBox.style.display =
+                            "none";
+
+
+
+                        const title =
+                            document
+                                .getElementById(
+                                    "title"
+                                )
+                                .value
+                                .trim();
+
+
+                        const categoryValue =
+                            category.value;
+
+
+                        const priority =
+                            document
+                                .getElementById(
+                                    "priority"
+                                )
+                                .value;
+
+
+                        const department =
+                            document
+                                .getElementById(
+                                    "department"
+                                )
+                                .value;
+
+
+                        const descriptionValue =
+                            description.value.trim();
+
+
+
+                        /* VALIDATION */
+
+                        if (!title) {
+
+                            showError(
+                                "Please enter a complaint title."
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (!categoryValue) {
+
+                            showError(
+                                "Please select a category."
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (!department) {
+
+                            showError(
+                                "Please select the concerned department."
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (
+                            descriptionValue.length < 10
+                        ) {
+
+                            showError(
+                                "Please provide more details about the complaint."
+                            );
+
+                            return;
+
+                        }
+
+
+
+                        /* DISABLE */
+
+                        submitButton.disabled =
+                            true;
+
+                        submitButton.textContent =
+                            "Submitting...";
+
+
+
+                        try {
+
+                            const data =
+                                await apiRequest(
+                                    "/api/complaints",
+                                    {
+
+                                        method: "POST",
+
+                                        body:
+                                            JSON.stringify({
+
+                                                title:
+                                                    title,
+
+                                                category:
+                                                    categoryValue,
+
+                                                priority:
+                                                    priority,
+
+                                                department:
+                                                    department,
+
+                                                description:
+                                                    descriptionValue
+
+                                            })
+
+                                    }
+                                );
+
+
+                            console.log(
+                                "Complaint submitted:",
+                                data
+                            );
+
+
+                            successBox.textContent =
+                                "✓ Complaint submitted successfully!";
+
+                            successBox.style.display =
+                                "block";
+
+
+                            localStorage.removeItem(
+                                "selectedComplaintCategory"
+                            );
+
+
+                            form.reset();
+
+
+                            characterCount.textContent =
+                                "0 / 1000";
+
+
+                            setTimeout(
+                                () => {
+
+                                    window.location.href =
+                                        "complaints.html";
+
+                                },
+                                1500
+                            );
+
+
+                        } catch (error) {
+
+                            console.error(
+                                "Complaint error:",
+                                error
+                            );
+
+
+                            showError(
+                                error.message ||
+                                "Unable to submit complaint."
+                            );
+
+
+                        } finally {
+
+                            submitButton.disabled =
+                                false;
+
+                            submitButton.textContent =
+                                "Submit Complaint →";
+
+                        }
+
+                    }
+                );
+
+
+
+                /* ERROR */
+
+                function showError(
+                    message
+                ) {
+
+                    errorBox.textContent =
+                        message;
+
+                    errorBox.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

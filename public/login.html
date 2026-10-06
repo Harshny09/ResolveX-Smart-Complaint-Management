@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | ResolveX</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+        }
+
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1150px;
+            min-height: 650px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            border-radius: 28px;
+            overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(17, 24, 39, 0.85);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.35);
+        }
+
+        /* =========================================
+           LEFT SIDE
+        ========================================= */
+
+        .login-left {
+            padding: 70px 65px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(79,70,229,0.25),
+                    transparent 55%
+                ),
+                #070b1d;
+        }
+
+        .brand {
+            font-size: 30px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 80px;
+        }
+
+        .brand span {
+            color: #5b8cff;
+        }
+
+        .welcome-badge {
+            display: inline-block;
+            width: fit-content;
+
+            padding: 10px 18px;
+
+            border: 1px solid rgba(91,140,255,0.5);
+            border-radius: 30px;
+
+            color: #9db7ff;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 28px;
+        }
+
+        .login-left h1 {
+            margin: 0;
+
+            font-size: clamp(48px, 5vw, 70px);
+            line-height: 1.05;
+
+            color: white;
+            font-weight: 800;
+        }
+
+        .login-left h1 span {
+            color: #5b8cff;
+        }
+
+        .login-description {
+            margin-top: 30px;
+
+            max-width: 520px;
+
+            font-size: 16px;
+            line-height: 1.8;
+
+            color: #9ba8c7;
+        }
+
+        .feature-list {
+            margin-top: 35px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            color: #dce4ff;
+            font-size: 15px;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(16,185,129,0.15);
+            border: 1px solid rgba(16,185,129,0.35);
+
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           RIGHT SIDE
+        ========================================= */
+
+        .login-right {
+            padding: 65px 55px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background: rgba(20,25,40,0.95);
+        }
+
+        .section-label {
+            color: #6f8fff;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+        .login-right h2 {
+            margin: 0;
+
+            color: white;
+
+            font-size: 42px;
+            font-weight: 800;
+        }
+
+        .login-subtitle {
+            margin-top: 12px;
+
+            color: #8996b5;
+            font-size: 15px;
+        }
+
+        /* =========================================
+           ERROR MESSAGE
+        ========================================= */
+
+        .error-message {
+            display: none;
+
+            margin-top: 28px;
+            margin-bottom: 20px;
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            background: rgba(239,68,68,0.12);
+            border: 1px solid rgba(239,68,68,0.35);
+
+            color: #ff8585;
+
+            font-size: 14px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .login-form {
+            margin-top: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 9px;
+
+            color: #dbe4ff;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+
+            padding: 16px 48px 16px 16px;
+
+            border-radius: 10px;
+
+            border: 1px solid #343c53;
+
+            background: #1a2030;
+
+            color: white;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.25s;
+        }
+
+        .form-input::placeholder {
+            color: #68738d;
+        }
+
+        .form-input:focus {
+            border-color: #5b8cff;
+
+            box-shadow:
+                0 0 0 3px rgba(91,140,255,0.12);
+        }
+
+        .password-toggle {
+            position: absolute;
+
+            right: 14px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+            background: transparent;
+
+            color: #8793ad;
+
+            cursor: pointer;
+
+            font-size: 17px;
+        }
+
+        .password-toggle:hover {
+            color: white;
+        }
+
+        /* =========================================
+           OPTIONS
+        ========================================= */
+
+        .login-options {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #8e9ab5;
+
+            font-size: 13px;
+        }
+
+        .remember input {
+            accent-color: #5b8cff;
+        }
+
+        .forgot-link {
+            color: #7294ff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           LOGIN BUTTON
+        ========================================= */
+
+        .login-button {
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #5865f2,
+                    #10b9d8
+                );
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+            box-shadow:
+                0 12px 30px rgba(79,70,229,0.25);
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 16px 35px rgba(79,70,229,0.35);
+        }
+
+        .login-button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* =========================================
+           DIVIDER
+        ========================================= */
+
+        .divider {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin: 32px 0;
+
+            color: #626d87;
+
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #30384c;
+        }
+
+        /* =========================================
+           REGISTER
+        ========================================= */
+
+        .register-text {
+            text-align: center;
+
+            color: #8996b5;
+
+            font-size: 14px;
+        }
+
+        .register-text a {
+            color: #7294ff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           DEMO ADMIN
+        ========================================= */
+
+        .demo-admin {
+            margin-top: 28px;
+
+            padding: 18px;
+
+            text-align: center;
+
+            border-radius: 12px;
+
+            background: rgba(91,140,255,0.07);
+            border: 1px solid rgba(91,140,255,0.18);
+        }
+
+        .demo-admin strong {
+            display: block;
+
+            color: white;
+
+            margin-bottom: 7px;
+        }
+
+        .demo-admin span {
+            color: #8190b4;
+
+            font-size: 12px;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+
+            .login-left {
+                display: none;
+            }
+
+            .login-right {
+                padding: 50px 30px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .login-page {
+                padding: 15px;
+            }
+
+            .login-container {
+                min-height: auto;
+                border-radius: 18px;
+            }
+
+            .login-right {
+                padding: 40px 22px;
+            }
+
+            .login-right h2 {
+                font-size: 34px;
+            }
+
+            .login-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="login-body">
+
+
+<div class="login-page">
+
+
+    <div class="login-container">
+
+
+        <!-- =====================================
+             LEFT SIDE
+        ====================================== -->
+
+        <section class="login-left">
+
+            <div class="brand">
+                Resolve<span>X</span>
+            </div>
+
+
+            <div class="welcome-badge">
+                ✦ WELCOME BACK
+            </div>
+
+
+            <h1>
+                Manage your
+                <span>complaints.</span>
+            </h1>
+
+
+            <p class="login-description">
+
+                Login to your ResolveX account and
+                continue tracking your complaints,
+                updates and resolutions.
+
+            </p>
+
+
+            <div class="feature-list">
+
+
+                <div class="feature">
+
+                    <span class="feature-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Track complaints in real time
+                    </span>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <span class="feature-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        View complaint history
+                    </span>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <span class="feature-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Receive resolution updates
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             RIGHT SIDE
+        ====================================== -->
+
+        <section class="login-right">
+
+
+            <div class="section-label">
+                LOGIN
+            </div>
+
+
+            <h2>
+                Welcome Back
+            </h2>
+
+
+            <p class="login-subtitle">
+                Login to continue to ResolveX.
+            </p>
+
+
+
+            <!-- ERROR -->
+
+            <div
+                id="loginError"
+                class="error-message"
+            ></div>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form
+                id="loginForm"
+                class="login-form"
+            >
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-input"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            onclick="togglePassword()"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OPTIONS -->
+
+                <div class="login-options">
+
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="forgot-link"
+                        onclick="forgotPassword(event)"
+                    >
+                        Forgot Password?
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="loginButton"
+                >
+                    Login →
+                </button>
+
+
+            </form>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+                OR
+            </div>
+
+
+
+            <!-- REGISTER -->
+
+            <div class="register-text">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+
+            <!-- DEMO ADMIN -->
+
+            <div class="demo-admin">
+
+                <strong>
+                    Demo Admin
+                </strong>
+
+                <span>
+                    admin@resolvex.com / admin123
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+
+            const errorBox =
+                document
+                    .getElementById("loginError");
+
+
+            const loginButton =
+                document
+                    .getElementById("loginButton");
+
+
+            /* Clear previous error */
+
+            errorBox.textContent = "";
+
+            errorBox.classList.remove("show");
+
+
+            /* Basic validation */
+
+            if (!email || !password) {
+
+                errorBox.textContent =
+                    "Please enter your email and password.";
+
+                errorBox.classList.add("show");
+
+                return;
+
+            }
+
+
+            /* Button loading state */
+
+            loginButton.disabled = true;
+
+            loginButton.textContent =
+                "Logging in...";
+
+
+            try {
+
+
+                /* =================================
+                   CALL BACKEND
+                ================================= */
+
+                const response =
+                    await fetch(
+                        "/api/auth/login",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                email: email,
+
+                                password: password
+
+                            })
+
+                        }
+                    );
+
+
+                /* =================================
+                   READ RESPONSE
+                ================================= */
+
+                const data =
+                    await response.json();
+
+
+                /* =================================
+                   LOGIN FAILED
+                ================================= */
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Invalid email or password."
+                    );
+
+                }
+
+
+                /* =================================
+                   LOGIN SUCCESS
+                ================================= */
+
+                console.log(
+                    "Login successful:",
+                    data
+                );
+
+
+                /*
+                 * Save JWT token
+                 */
+
+                localStorage.setItem(
+                    "token",
+                    data.token
+                );
+
+
+                /*
+                 * Save user information
+                 */
+
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify(data.user)
+                );
+
+
+                /*
+                 * Optional individual values
+                 */
+
+                localStorage.setItem(
+                    "userId",
+                    data.user.id
+                );
+
+
+                localStorage.setItem(
+                    "userName",
+                    data.user.name
+                );
+
+
+                localStorage.setItem(
+                    "userEmail",
+                    data.user.email
+                );
+
+
+                localStorage.setItem(
+                    "userRole",
+                    data.user.role
+                );
+
+
+                /* =================================
+                   REDIRECT
+                ================================= */
+
+                window.location.href =
+                    "dashboard.html";
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "Login error:",
+                    error
+                );
+
+
+                errorBox.textContent =
+                    error.message ||
+                    "Login failed. Please try again.";
+
+
+                errorBox.classList.add("show");
+
+
+            }
+
+            finally {
+
+
+                loginButton.disabled = false;
+
+                loginButton.textContent =
+                    "Login →";
+
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================
+   SHOW / HIDE PASSWORD
+========================================= */
+
+function togglePassword() {
+
+
+    const passwordInput =
+        document.getElementById(
+            "password"
+        );
+
+
+    const toggleButton =
+        document.getElementById(
+            "passwordToggle"
+        );
+
+
+    if (
+        passwordInput.type ===
+        "password"
+    ) {
+
+        passwordInput.type =
+            "text";
+
+        toggleButton.textContent =
+            "🙈";
+
+        toggleButton.setAttribute(
+            "aria-label",
+            "Hide password"
+        );
+
+    }
+
+    else {
+
+        passwordInput.type =
+            "password";
+
+        toggleButton.textContent =
+            "👁";
+
+        toggleButton.setAttribute(
+            "aria-label",
+            "Show password"
+        );
+
+    }
+
+}
+
+
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+function forgotPassword(event) {
+
+
+    event.preventDefault();
+
+
+    alert(
+        "Password reset functionality will be available soon."
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
